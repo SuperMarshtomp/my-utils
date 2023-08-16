@@ -9,7 +9,6 @@ export const renderChart = (container, callback, height = 280) => {
     container,
     autoFit: true,
     height,
-    // padding: [10, 0, 50, 30],
   });
   chart.scale('timestamp', {
     type: 'timeCat',
@@ -37,9 +36,7 @@ export const renderHistogram = ({ id, data, cusColor, x, y }) => {
   });
 };
 // 折线图
-export const renderLine = (
-  { id, data, height, cusColors, x, y, name } = { height: 230 }
-) => {
+export const renderLine = ({ id, data, height, cusColors, x, y, name }) => {
   renderChart(
     id,
     (chart, color) => {
@@ -57,7 +54,7 @@ export const renderLine = (
         .color(name || 'name', cusColors || color)
         .shape('smooth');
     },
-    height
+    height || 230
   );
 };
 
